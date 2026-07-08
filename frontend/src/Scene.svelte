@@ -90,26 +90,4 @@
   infiniteGrid
 />
 
-<T.Group bind:ref={meshGroupRef}>
-  <T.Mesh geometry={currentPageGeo} receiveShadow>
-    <T.MeshStandardMaterial
-      color={$monthData.bg}
-      roughness={0.9}
-      metalness={0.1}
-      side={THREE.FrontSide}
-    />
-  </T.Mesh>
 
-  {#if isFlipping}
-    <T.Mesh geometry={flipPageGeo} position={[0, 0, 0.003]} castShadow>
-      <T.MeshStandardMaterial
-        color="#f5f5f0"
-        roughness={0.95}
-        metalness={0.0}
-        side={THREE.DoubleSide}
-        transparent
-        opacity={Math.max(0, 1 - flipProgress * 0.7)}
-      />
-    </T.Mesh>
-  {/if}
-</T.Group>
