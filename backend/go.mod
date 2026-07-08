@@ -1,4 +1,4 @@
-module chronos-backend
+module cal-backend
 
 go 1.21
 

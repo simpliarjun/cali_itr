@@ -34,15 +34,15 @@
 </script>
 
 <svelte:head>
-  <title>Chronos — {$monthData.name} {$monthData.year}</title>
-  <meta name="description" content="Chronos interactive calendar — {$monthData.name} {$monthData.year}" />
+  <title>{$monthData.name} {$monthData.year} — Wall Calendar</title>
+  <meta name="description" content="Interactive wall calendar — {$monthData.name} {$monthData.year}" />
 </svelte:head>
 
 <div
   id="app"
   style="--accent: {$monthData.accent}; --bg: {$monthData.bg}; --text: {$monthData.textColor};"
   role="application"
-  aria-label="Chronos Wall Calendar"
+  aria-label="Wall Calendar"
 >
   <Canvas>
     <Scene />
@@ -52,7 +52,7 @@
     <header class="top-bar">
       <div class="brand-block">
         <span class="brand-dot" style="background: {$monthData.accent}" aria-hidden="true"></span>
-        <span class="brand-name">Chronos</span>
+        <span class="brand-name">Cal</span>
       </div>
 
       <nav class="month-nav" aria-label="Month navigation">

@@ -19,7 +19,7 @@ function createCalendarStore() {
 
   function readStorage(): CalendarEvent[] {
     try {
-      const raw = localStorage.getItem('chronos:events');
+      const raw = localStorage.getItem('cal:events');
       return raw ? (JSON.parse(raw) as CalendarEvent[]) : [];
     } catch {
       return [];
@@ -28,7 +28,7 @@ function createCalendarStore() {
 
   events.subscribe((evts) => {
     try {
-      localStorage.setItem('chronos:events', JSON.stringify(evts));
+      localStorage.setItem('cal:events', JSON.stringify(evts));
     } catch { /* quota exceeded */ }
   });
 
