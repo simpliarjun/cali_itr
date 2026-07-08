@@ -1,4 +1,3 @@
-# Chronos
 
 A next-generation interactive calendar built with a multi-language stack:
 
