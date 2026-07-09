@@ -29,6 +29,8 @@ type WsMessage struct {
 	Payload interface{} `json:"payload"`
 }
 
+const DefaultEventColor = "#7eb8f7"
+
 var (
 	mu      sync.RWMutex
 	events  = make([]Event, 0, 64)
@@ -178,7 +180,7 @@ func validateEvent(e *Event) error {
 		return fmt.Errorf("invalid end time")
 	}
 	if e.Color == "" {
-		e.Color = "#7eb8f7"
+		e.Color = DefaultEventColor
 	}
 	return nil
 }
@@ -239,7 +241,7 @@ func parseNLInput(input string) fiber.Map {
 		"title": title,
 		"start": start.Format(time.RFC3339),
 		"end":   end.Format(time.RFC3339),
-		"color": "#7eb8f7",
+		"color": DefaultEventColor,
 	}
 }
 
