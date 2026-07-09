@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"os"
 	"strings"
 	"sync"
 	"time"
@@ -47,8 +48,12 @@ func main() {
 
 	app.Use(logger.New())
 
+	corsOrigin := os.Getenv("CORS_ORIGIN")
+	if corsOrigin == "" {
+		corsOrigin = "http://localhost:5173"
+	}
 	app.Use(cors.New(cors.Config{
-		AllowOrigins: "http://localhost:5173",
+		AllowOrigins: corsOrigin,
 		AllowMethods: "GET,POST,DELETE",
 		AllowHeaders: "Content-Type",
 	}))
@@ -147,7 +152,15 @@ func main() {
 		}
 	}))
 
-	log.Fatal(app.Listen("127.0.0.1:4000"))
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "4000"
+	}
+	addr := os.Getenv("HOST")
+	if addr == "" {
+		addr = "127.0.0.1"
+	}
+	log.Fatal(app.Listen(addr + ":" + port))
 }
 
 func validateEvent(e *Event) error {
