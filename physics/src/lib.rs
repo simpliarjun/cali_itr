@@ -5,6 +5,11 @@ const MESH_COLS: usize = 12;
 const MESH_ROWS: usize = 16;
 const TOTAL_POINTS: usize = MESH_COLS * MESH_ROWS;
 
+// Simulation tuning parameters
+const BASE_STIFFNESS: f64 = 0.12;
+const STIFFNESS_GRADIENT: f64 = 0.06;
+const DAMPING_FACTOR: f64 = 0.72;
+
 pub struct SpringPoint {
     z: f64,
     vz: f64,
@@ -70,9 +75,9 @@ impl PageMesh {
                 let wave = (curl_phase * std::f64::consts::PI * 2.0 - t * 6.0).sin();
                 let lift = (page_angle.sin()).abs();
                 let target_z = wave * lift * 0.4 * self.height;
-                let stiffness = 0.12 + (1.0 - u) * 0.06;
+                let stiffness = BASE_STIFFNESS + (1.0 - u) * STIFFNESS_GRADIENT;
                 let idx = row * MESH_COLS + col;
-                self.points[idx].step(target_z, stiffness, 0.72);
+                self.points[idx].step(target_z, stiffness, DAMPING_FACTOR);
             }
         }
 
