@@ -9,11 +9,14 @@
 
   const { monthData, flipState, navigate, events } = calendar;
 
+  const MIN_YEAR = 2020;
+  const MAX_YEAR = 2030;
+
   let canNavigateBack = true;
   let canNavigateForward = true;
 
-  $: canNavigateBack = $monthData.id > 1 || $monthData.year > 2020;
-  $: canNavigateForward = $monthData.id < 12 || $monthData.year < 2030;
+  $: canNavigateBack = $monthData.id > 1 || $monthData.year > MIN_YEAR;
+  $: canNavigateForward = $monthData.id < 12 || $monthData.year < MAX_YEAR;
 
   function handleKeydown(e: KeyboardEvent) {
     if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
