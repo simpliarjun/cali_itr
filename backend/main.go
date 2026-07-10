@@ -15,6 +15,7 @@ import (
 	"github.com/gofiber/websocket/v2"
 )
 
+// Event represents a scheduled calendar item with a specific time range and color.
 type Event struct {
 	ID          string `json:"id"`
 	Title       string `json:"title"`
@@ -165,6 +166,7 @@ func main() {
 	log.Fatal(app.Listen(addr + ":" + port))
 }
 
+// validateEvent checks the required fields and constraints for an Event payload.
 func validateEvent(e *Event) error {
 	e.Title = strings.TrimSpace(e.Title)
 	if e.Title == "" {
