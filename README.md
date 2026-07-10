@@ -16,6 +16,12 @@ A next-generation interactive calendar built with a multi-language stack:
 - Real-time WebSocket event sync
 - ARIA-compliant grid with today/selected/event-pip states
 
+## Directory Structure
+
+- `frontend/` - Svelte 5 + WebGL calendar interface
+- `backend/` - Go Fiber REST API and WebSockets server
+- `physics/` - Rust WebAssembly spring mesh physics engine
+
 ## Running locally
 
 ### Frontend
