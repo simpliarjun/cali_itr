@@ -27,6 +27,7 @@ impl SpringPoint {
     }
 }
 
+/// PageMesh represents the 3D spring-mass grid used to simulate page curling.
 #[wasm_bindgen]
 pub struct PageMesh {
     points: Vec<SpringPoint>,
@@ -53,6 +54,7 @@ impl PageMesh {
         }
     }
 
+    /// Initiates a page flip animation in the specified direction.
     pub fn begin_flip(&mut self, forward: bool) {
         self.flip_progress = 0.0;
         self.direction = if forward { 1.0 } else { -1.0 };
