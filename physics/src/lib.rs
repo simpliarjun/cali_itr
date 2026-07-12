@@ -10,6 +10,7 @@ const BASE_STIFFNESS: f64 = 0.12;
 const STIFFNESS_GRADIENT: f64 = 0.06;
 const DAMPING_FACTOR: f64 = 0.72;
 
+/// SpringPoint represents a single vertex in the physics mesh, tracking position and velocity.
 pub struct SpringPoint {
     z: f64,
     vz: f64,
