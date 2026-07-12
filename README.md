@@ -22,6 +22,13 @@ A next-generation interactive calendar built with a multi-language stack:
 - `backend/` - Go Fiber REST API and WebSockets server
 - `physics/` - Rust WebAssembly spring mesh physics engine
 
+## Prerequisites
+
+Ensure you have the following installed before proceeding:
+- Node.js (for the frontend)
+- Go 1.21+ (for the backend)
+- wasm-pack (for building the physics module)
+
 ## Running locally
 
 ### Frontend
