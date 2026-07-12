@@ -61,8 +61,9 @@ func main() {
 		AllowHeaders: "Content-Type",
 	}))
 
+	const MaxRequestsPerMinute = 60
 	app.Use(limiter.New(limiter.Config{
-		Max:        60,
+		Max:        MaxRequestsPerMinute,
 		Expiration: time.Minute,
 	}))
 
@@ -187,6 +188,7 @@ func validateEvent(e *Event) error {
 	return nil
 }
 
+// parseNLInput converts a natural language scheduling string into a structured event.
 func parseNLInput(input string) fiber.Map {
 	lower := strings.ToLower(input)
 	title := input
