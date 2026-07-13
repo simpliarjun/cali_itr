@@ -18,6 +18,8 @@ A next-generation interactive calendar built with a multi-language stack:
 
 ## Directory Structure
 
+The repository is split into three main components:
+
 - `frontend/` - Svelte 5 + WebGL calendar interface
 - `backend/` - Go Fiber REST API and WebSockets server
 - `physics/` - Rust WebAssembly spring mesh physics engine
