@@ -25,6 +25,7 @@ type Event struct {
 	Description string `json:"description,omitempty"`
 }
 
+// WsMessage represents a structured WebSocket message payload.
 type WsMessage struct {
 	Type    string      `json:"type"`
 	Payload interface{} `json:"payload"`
