@@ -18,6 +18,7 @@
     flipDir = $flipState === 'forward' ? 1 : -1;
   }
 
+  // Dimensions for the 3D page curl mesh
   const PAGE_W = 3.5;
   const PAGE_H = 4.5;
 
