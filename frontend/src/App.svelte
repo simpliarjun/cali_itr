@@ -9,6 +9,7 @@
 
   const { monthData, flipState, navigate, events } = calendar;
 
+  // Constants defining the navigable year bounds
   const MIN_YEAR = 2020;
   const MAX_YEAR = 2030;
 
